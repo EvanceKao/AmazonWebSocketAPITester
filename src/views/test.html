@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+  <title>AWS API Gateway WebSocket API Test</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel='stylesheet' href='/css/bootstrap.css' type='text/css' />
+  <link rel='stylesheet' href='/css/animate.css' type='text/css' />
+  <link rel='stylesheet' href='/css/style.css' type='text/css' />
+
+  <!-- Jquery -->
+  <script type='text/javascript' src='/js/jquery.js'></script>
+</head>
+
+<body>
+  <div id="echo" class="container">
+    <h1>AWS API Gateway</h1>
+    <h2>WebSocket API Test {{ .TestMessage }}</h2>
+
+    <div class="row">
+
+      <!-- <div id="echo-config" style="float: left;"> -->
+      <div id="echo-config" class="col-md-4 col-12">
+        <strong>Location:</strong><br>
+        <input class="draw-border" id="wsUri" size="35">
+        <br>
+        <!-- <input class="draw-border echo-checkbox" type="checkbox" id="secureCb" onClick="toggleTls();"><br>
+        <span id="secureCbLabel" style="font-size: smaller; color: black;">Use secure WebSocket (TLS)</span><br> -->
+        <button class="echo-button" id="connect">Connect</button>
+        <button class="echo-button" id="disconnect">Disconnect</button>
+        <br>
+        <br>
+        <strong>Route Action:</strong><br>
+        <input class="draw-border" id="routeAction" size="35" value="register">
+        <br>
+        <strong>Message:</strong><br>
+        <input class="draw-border" id="sendMessage" size="35" value="Rock it with HTML5 WebSocket">
+        <br>
+        <button class="echo-button" id="send" class="wsButton">Send</button>
+      </div>
+
+      <!-- <div class="clearfix col-md-1"></div> -->
+
+      <!-- <div id="echo-log" style="float: left; margin-left: 20px; padding-left: 20px; width: 350px; border-left: solid 1px #cccccc;"> -->
+      <div id="echo-log" class="col-md-8 col-12">
+        <strong>Log:</strong>
+        <div class="logArea" id="consoleLog"></div>
+        <button class="echo-button" id="clearLogBut" style="position: relative; top: 3px;">Clear log</button>
+      </div>
+
+      <!-- <div class="clearfix"></div> -->
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-4 col-12">
+        <strong>Connetion URL</strong><br>
+        <input class="draw-border" id="connectionUrl" size="35" value="">
+        <br>
+        <strong>Connetion ID</strong><br>
+        <input class="draw-border" id="connectionId" size="35" value="">
+        <br>
+        <br>
+        <button class="echo-button" id="connectionCheckStatusBut"
+          style="width: 200px;position: relative; top: 3px;">Check Connection Status</button>
+          <br>
+          <br>
+          <strong>Send Message to Connection:</strong><br>
+        <input class="draw-border" id="sendMessageToConnection" size="35" value="This message is from ankend call.">
+        <br>
+        <button class="echo-button" id="connectionSendMessageBut"
+          style="width: 200px;position: relative; top: 3px;">Push Message To Connection</button>
+        <br>
+        <br>
+        <button class="echo-button" id="connectionDeleteBut" style="width: 200px;position: relative; top: 3px;">Delete
+          Connection</button>
+        <br>
+      </div>
+
+      <div class="col-md-8 col-12">
+        <strong>Call From Backend Log:</strong>
+        <div class="logArea" id="backendRequestLog"></div>
+        <button class="echo-button" id="clearbackendRequestLogBut" style="position: relative; top: 3px;">Clear
+          log</button>
+      </div>
+
+    </div>
+    <hr>
+    <h4>Instructions</h4>
+    <ol>
+      <li>
+        Press the <b>Connect</b> button.
+      </li>
+      <li>
+        Once connected, enter a message and press the <b>Send</b> button. The output will appear in the <b>Log</b>
+        section. You can change the message and send again multiple times.
+      </li>
+      <li>
+        Press the <b>Disconnect</b> button.
+      </li>
+    </ol>
+    <b>Note:</b> In some environments the WebSocket connection may fail due to intermediary firewalls, proxies, routers,
+    etc.
+  </div>
+
+  <script src='/js/bootstrap.js'></script>
+  <script src='/js/echo.js'></script>
+
+  <script language="javascript" type="text/javascript">
+    //document.getElementById('sendMessage').value = '{"action" : "onMessage" , "message" : "{\\\"msg\\\":\\\"Rock it with HTML5 WebSocket\\\"}"}';
+    //document.getElementById('sendMessage').value = "{\\\"msg\\\":\\\"Rock it with HTML5 WebSocket\\\"}";
+    document.getElementById('sendMessage').value = "{\"msg\":\"Rock it with HTML5 WebSocket\"}";
+  </script>
+
+</body>
